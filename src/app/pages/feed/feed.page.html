@@ -1,67 +1,56 @@
-<!-- <ion-header>
-  <ion-toolbar (click)=locationModal()>
-    <ion-icon name="pin" color="primary" style="font-size:18px; margin-left: 8px; font-weight: bold;"></ion-icon> Betul,
-    Madhya Pradesh
-  </ion-toolbar>
- <ion-searchbar type="text" debounce="500" mode="ios" (ionChange)="getItems($event)" placeholder="Electricians, Plumbers etc.."></ion-searchbar>
-  <ion-list *ngIf="isItemAvailable" style="position: absolute; width: 100%; opacity:0.95;">
-      <ion-item *ngFor="let item of items" (click)="techByCategory(item)">{{ item }}</ion-item>
-  </ion-list> 
-</ion-header> -->
-
-
+  
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>Hospital Beds</ion-title>
-    <ion-icon name="locate" color="warning" slot="end" padding (click)=checkGPSPermission() style="height: 25px;
-    width: 25px;"></ion-icon>
+  <ion-toolbar color="tertiary">
+    <ion-title>Dashboard</ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content [scrollEvents]="true" (ionScroll)="onScroll($event)">
 
-  <ion-slides pager="true" [options]="slideOpts" style="height:140px;">
-    <ion-slide *ngFor="let item of banner">
-      <img src="assets/images/banner1.png" style="width: 100% !important;object-fit: cover;border-radius:5px;" />
-    </ion-slide>
-    <ion-slide *ngFor="let item of banner">
-      <img src="assets/images/banner2.png" style="width: 100% !important;object-fit: cover;border-radius:5px;" />
-    </ion-slide>
-  </ion-slides>
+<ion-content>
+  <h3 padding>Welcome {{this.authUser?.name}}</h3>
+  <ion-row>
+    <ion-col col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 >
+      <ion-card>
+        <ion-card-content>
+          <h3>Total Beds</h3>
+          <h1>133</h1>
+          <h3>Available Beds</h3>
+          <h1>133</h1>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+    <ion-col col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 >
+      <ion-card>
+        <ion-card-content>
+          <h3>Total Oxigen</h3>
+          <h1>455</h1>
+          <h3>Available Oxigen</h3>
+          <h1>455</h1>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
 
-  <ion-grid>
-    <ion-row>
+  </ion-row>
+  <ion-row>
+    <ion-col col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 >
+      <ion-card>
+        <ion-card-content>
+          <h3 padding>Update Beds</h3>
+          <ion-input autocomplete="off" type="text" name="mobile" [(ngModel)]="postData.total_beds" style="border:2px solid purple;"></ion-input>
+        </ion-card-content>
+        <ion-button expand="block" share="round" color="tertiary">Update
+        </ion-button>
+      </ion-card>
+    </ion-col>
+    <ion-col col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 >
+      <ion-card>
+        <ion-card-content>
+          <h3 padding>Update Oxigen</h3>
+          <ion-input autocomplete="off" type="text" name="mobile" [(ngModel)]="postData.total_beds" style="border:2px solid purple;"></ion-input>
+        </ion-card-content>
+        <ion-button expand="block" share="round" color="tertiary">Update
+        </ion-button>
+      </ion-card>
+    </ion-col>
 
-      <ion-col size="6" style="padding:0px;" *ngFor="let item of allCategory">
-        <ion-card>
-          <ion-card-content no-padding style="display: block;">
-            <img src="assets/images/bed.jpg" style="height:80px; margin:auto; width:80px;">
-          </ion-card-content>
-          <ion-card-content
-            style="display: block; font-size:12px; font-weight: bold;   text-transform: capitalize;height: 32px;">
-            <p style="color: red;"><b>{{item.name}}</b></p>
-          </ion-card-content>
-          <ion-card-content
-            style="display: block; font-size:12px; font-weight: bold;   text-transform: capitalize;height: 32px;">
-            <p style="color: red;"><b>Total Beds: {{item.total_beds}}</b></p>
-          </ion-card-content>
-          <ion-card-content
-            style="display: block; font-size:12px; font-weight: bold;   text-transform: capitalize;height: 32px;">
-            <p><b>Available Beds: {{item.avail_beds}}</b></p>
-          </ion-card-content>
-          <p
-            style="display: block; font-size:12px; text-align: center; font-weight: bold; padding:2px;text-transform: capitalize;height: 32px;">
-            <b>{{item.address}}</b>
-          </p>
-          <ion-button expand="block" share="round" color="primary" (click)="callNow(item.mobile)">Call now</ion-button>
-        </ion-card>
-      </ion-col>
-
-
-    </ion-row>
-  </ion-grid>
-  <!-- <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
-    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
-    </ion-infinite-scroll-content>
-  </ion-infinite-scroll> -->
-
+  </ion-row>
 </ion-content>

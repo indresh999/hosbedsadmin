@@ -34,7 +34,9 @@ export class FeedPage implements OnInit {
     limit: 10,
     latitude: 0,
     longitude: 0,
-    type: 1
+    type: 1,
+    total_beds:0,
+    total_o:0
   };
 
   slideOpts = {
@@ -82,9 +84,10 @@ export class FeedPage implements OnInit {
   }
 
   ngOnInit() {
-    this.checkGPSPermission();
-    this.hospitalData(false, "");
-    this.bannerData();
+    this.auth.userData$.subscribe((res: any) => {
+      this.authUser = res;
+    
+    });
   }
 
   hospitalData(isFirstLoad, event) {

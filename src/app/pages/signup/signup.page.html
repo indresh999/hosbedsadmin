@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar color="mango">
+  <ion-toolbar color="tertiary">
     <ion-title>Registration</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -12,27 +12,43 @@
   <form>
     <ion-list>
         <ion-item>
-            <ion-label position="stacked">Name</ion-label>
+            <ion-label position="stacked">Hospital name</ion-label>
             <ion-input autocomplete="off" name="name" type="text" [(ngModel)]="postData.name"></ion-input>
           </ion-item>
+        <ion-item>
+            <ion-label position="stacked">Mobile</ion-label>
+            <ion-input autocomplete="off" name="name" type="text" [(ngModel)]="postData.mobile"></ion-input>
+          </ion-item>
       <ion-item>
-        <ion-label position="stacked">Email</ion-label>
-        <ion-input autocomplete="off" name="email" type="email" [(ngModel)]="postData.email"></ion-input>
+        <ion-label position="stacked">Area/Street</ion-label>
+        <ion-input autocomplete="off" name="email" type="email" [(ngModel)]="postData.area"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label position="stacked">Username</ion-label>
-        <ion-input autocomplete="off" name="username" type="text" [(ngModel)]="postData.username"></ion-input>
+        <ion-label position="stacked">City</ion-label>
+        <ion-input autocomplete="off" name="username" type="text" [(ngModel)]="postData.city"></ion-input>
       </ion-item>
 
+      <ion-item>
+        <ion-label position="stacked">Full address</ion-label>
+        <ion-input autocomplete="off" name="password" type="text" [(ngModel)]="postData.address"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Total Beds</ion-label>
+        <ion-input autocomplete="off" name="password" type="number" [(ngModel)]="postData.total_beds"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Total Oxigen</ion-label>
+        <ion-input autocomplete="off" name="password" type="number" [(ngModel)]="postData.total_o"></ion-input>
+      </ion-item>
       <ion-item>
         <ion-label position="stacked">Password</ion-label>
         <ion-input autocomplete="off" name="password" type="password" [(ngModel)]="postData.password"></ion-input>
       </ion-item>
-
+      <ion-button expand="block" share="round" color="success" (click)="signupAction()">Registration</ion-button>
       <ion-item lines='none'>
         Already have an account? <a routerLink='/login'>Sign in.</a>
       </ion-item>
     </ion-list>
-    <ion-button expand="block" share="round" color="success" (click)="signupAction()">Registration</ion-button>
+   
   </form>
 </ion-content>

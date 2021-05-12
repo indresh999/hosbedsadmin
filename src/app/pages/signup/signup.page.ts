@@ -13,9 +13,15 @@ import { ToastService } from './../../services/toast.service';
 export class SignupPage implements OnInit {
   postData = {
     name: '',
-    username: '',
-    email: '',
-    password: ''
+    area: '',
+    city: '',
+    mobile: '',
+    address: '',
+    total_beds: '',
+    total_o: '',
+    password: '',
+    latitude:0,
+    longitude:0
   };
 
   constructor(
@@ -28,18 +34,17 @@ export class SignupPage implements OnInit {
   ngOnInit() {}
 
   validateInputs() {
-    let username = this.postData.username.trim();
+    let username = this.postData.name.trim();
     let password = this.postData.password.trim();
-    let email = this.postData.email.trim();
+    let mobile = this.postData.mobile.trim();
     let name = this.postData.name.trim();
     return (
       this.postData.name &&
-      this.postData.username &&
+      this.postData.name &&
       this.postData.password &&
-      this.postData.email &&
-      email.length > 0 &&
-      username.length > 0 &&
-      email.length > 0 &&
+      this.postData.mobile &&
+      name.length > 0 &&
+      mobile.length > 0 &&
       password.length > 0
     );
   }
