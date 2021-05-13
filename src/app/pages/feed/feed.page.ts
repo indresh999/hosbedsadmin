@@ -28,7 +28,7 @@ export class FeedPage implements OnInit {
   allCategory2 = [];
   banner = [];
   postData = {
-    user_id: '',
+    mobile: '',
     token: '',
     pid: 1,
     limit: 10,
@@ -36,7 +36,9 @@ export class FeedPage implements OnInit {
     longitude: 0,
     type: 1,
     total_beds:0,
-    total_o:0
+    total_o:0,
+    avail_beds:0,
+    avail_o:0
   };
 
   slideOpts = {
@@ -86,7 +88,7 @@ export class FeedPage implements OnInit {
   ngOnInit() {
     this.auth.userData$.subscribe((res: any) => {
       this.authUser = res;
-    
+      console.log(this.authUser);
     });
   }
 
@@ -194,6 +196,20 @@ export class FeedPage implements OnInit {
       .catch(err => console.log('Error launching dialer', err));
   }
 
+  updateDetails()
+  {
+    this.feedService.updateDetails(this.postData).subscribe(
+      (res: any) => {
+       if(res.data)
+       {
+        this.toastService.presentToast('Details updated..');
+       }   
+      },
+      (error: any) => {
+        this.toastService.presentToast('Somthing wrong..');
+      }
+    );
+  }
 
 
 

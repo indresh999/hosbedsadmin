@@ -49,4 +49,7 @@ export class FeedService {
   createTech(postData: any): Observable<any> {
     return this.httpService.post('api/services/createtech/', postData);
   }
+  updateDetails(postData: any): Observable<any> {
+    return this.httpService.post('api/services/updatedetails/', postData);
+  }
 }

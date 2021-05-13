@@ -37,7 +37,7 @@
           <h3 padding>Update Beds</h3>
           <ion-input autocomplete="off" type="text" name="mobile" [(ngModel)]="postData.total_beds" style="border:2px solid purple;"></ion-input>
         </ion-card-content>
-        <ion-button expand="block" share="round" color="tertiary">Update
+        <ion-button expand="block" share="round" color="tertiary" (click)=updateDetails()>Update
         </ion-button>
       </ion-card>
     </ion-col>
@@ -45,9 +45,9 @@
       <ion-card>
         <ion-card-content>
           <h3 padding>Update Oxigen</h3>
-          <ion-input autocomplete="off" type="text" name="mobile" [(ngModel)]="postData.total_beds" style="border:2px solid purple;"></ion-input>
+          <ion-input autocomplete="off" type="text" name="mobile" [(ngModel)]="postData.total_o" style="border:2px solid purple;"></ion-input>
         </ion-card-content>
-        <ion-button expand="block" share="round" color="tertiary">Update
+        <ion-button expand="block" share="round" color="tertiary" (click)=updateDetails()>Update
         </ion-button>
       </ion-card>
     </ion-col>
