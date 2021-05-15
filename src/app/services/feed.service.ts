@@ -40,16 +40,10 @@ export class FeedService {
   banners(postData: any): Observable<any> {
     return this.httpService.post('api/services/banner/', postData);
   }
-  techByCategory(postData: any): Observable<any> {
-    return this.httpService.post('api/services/techbycategory/', postData);
-  }
-  techDetailsById(postData: any): Observable<any> {
-    return this.httpService.post('api/services/techdetailsbyid/', postData);
-  }
-  createTech(postData: any): Observable<any> {
-    return this.httpService.post('api/services/createtech/', postData);
-  }
   updateDetails(postData: any): Observable<any> {
     return this.httpService.post('api/services/updatedetails/', postData);
+  }
+  getHospitalDetailByMobile(postData: any): Observable<any> {
+    return this.httpService.post('api/services/gethospitalbymobile/', postData);
   }
 }

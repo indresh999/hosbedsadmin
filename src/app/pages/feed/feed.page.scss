@@ -99,3 +99,13 @@ ion-card-content
   overflow: hidden;
   text-overflow: ellipsis; 
 }
+
+.blink_me {
+  animation: blinker 1s linear infinite;
+  color:red;
+  text-align:bold;
+}
+
+@keyframes blinker {  
+  50% { opacity: 0; }
+}

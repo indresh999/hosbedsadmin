@@ -24,11 +24,11 @@ export class AuthService {
   }
 
   login(postData: any): Observable<any> {
-    return this.httpService.post('api/services/createuser', postData);
+    return this.httpService.post('api/services/login', postData);
   }
 
   signup(postData: any): Observable<any> {
-    return this.httpService.post('signup', postData);
+    return this.httpService.post('api/services/createhospital', postData);
   }
 
   logout() {

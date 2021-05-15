@@ -12,8 +12,8 @@ import { ToastService } from './../../services/toast.service';
 })
 export class LoginPage implements OnInit {
   postData = {
-    name: '',
-    mobile: ''
+    mobile: '',
+    password:''
   };
 
   constructor(
@@ -27,12 +27,12 @@ export class LoginPage implements OnInit {
 
   validateInputs() {
     console.log(this.postData);
-    let name = this.postData.name.trim();
+    let password = this.postData.password.trim();
     let mobile = this.postData.mobile.trim();
     return (
-      this.postData.name &&
       this.postData.mobile &&
-      name.length > 0 &&
+      this.postData.password &&
+      password.length > 0 &&
       mobile.length > 0
     );
   }
@@ -42,6 +42,7 @@ export class LoginPage implements OnInit {
       this.authService.login(this.postData).subscribe(
         (res: any) => {
           if (res.data) {
+            console.log(res)
             // Storing the User data.
             this.storageService
               .store(AuthConstants.AUTH, res.data)
@@ -49,7 +50,7 @@ export class LoginPage implements OnInit {
                 this.router.navigate(['home']);
               });
           } else {
-            this.toastService.presentToast('Incorrect username and password.');
+            this.toastService.presentToast('Incorrect mobile and password.');
           }
         },
         (error: any) => {
@@ -58,7 +59,7 @@ export class LoginPage implements OnInit {
       );
     } else {
       this.toastService.presentToast(
-        'Please enter email/username or password.'
+        'Please enter mobile or password.'
       );
     }
   }

@@ -33,27 +33,10 @@ export class TechDetailsModalPage implements OnInit {
 
   ngOnInit() {
     this.postData.tech_id = this.navParams.get('tech_id');
-    this.getTechByid();
+   
   }
 
-  getTechByid() {
-
-    if (this.postData.tech_id) {
-      this.feedService.techDetailsById(this.postData).subscribe(
-        (res: any) => {
-
-          this.techName = res.data[0].name;
-          this.speciality = res.data[0].speciality;
-          this.address = res.data[0].address;
-          this.phone = res.data[0].mobile;
-          this.whatsapp = res.data[0].amobile;
-        },
-        (error: any) => {
-          this.toastService.presentToast('Network Issue.');
-        }
-      );
-    }
-  }
+ 
   phoneCall()
   {
     console.log("phone")

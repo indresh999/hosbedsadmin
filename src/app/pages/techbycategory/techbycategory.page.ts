@@ -33,26 +33,10 @@ export class TechbycategoryPage implements OnInit {
 
   ngOnInit() {
     this.postData.category = this.activatedRoutes.snapshot.paramMap.get('category');
-    this.techsData(false,"");
+  
   }
 
-  techsData(isFirstLoad, event) {
-
-    this.feedService.techByCategory(this.postData).subscribe(
-      (res: any) => {
-        for (let i = 0; i < res.data.length; i++) {
-          this.techData.push(res.data[i]);
-        }
-        if (isFirstLoad)
-          event.target.complete();
-        this.page_number++;
-        this.postData.pid = this.page_number;
-      },
-      (error: any) => {
-        this.toastService.presentToast('Somthing wrong..');
-      }
-    );
-}
+ 
 async techDetailsModal(tech_id) {
   const modal = await this.modalController.create({
     component: TechDetailsModalPage,

@@ -53,16 +53,16 @@ export class SignupPage implements OnInit {
     if (this.validateInputs()) {
       this.authService.signup(this.postData).subscribe(
         (res: any) => {
-          if (res.userData) {
+          if (res.data) {
             // Storing the User data.
             this.storageService
-              .store(AuthConstants.AUTH, res.userData)
+              .store(AuthConstants.AUTH, res.data)
               .then(res => {
                 this.router.navigate(['home']);
               });
           } else {
             this.toastService.presentToast(
-              'Data alreay exists, please enter new details.'
+              'Data already exists, please enter new details.'
             );
           }
         },
@@ -72,7 +72,7 @@ export class SignupPage implements OnInit {
       );
     } else {
       this.toastService.presentToast(
-        'Please enter name, email, username or password.'
+        'Please enter all details.'
       );
     }
   }

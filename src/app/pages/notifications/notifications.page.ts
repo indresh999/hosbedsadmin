@@ -58,31 +58,4 @@ export class NotificationsPage implements OnInit {
       address.length > 0
     );
   }
-
-  createTech() {
-    if (this.validateInputs()) {
-      this.feedService.createTech(this.postData).subscribe(
-       // this.loadinController.create(null, 90)
-        (res: any) => {
-          if (res.data) {
-            // Storing the User data.
-            this.toastService.presentToast(
-              'Created Succussfully...'
-            );
-          } else {
-            this.toastService.presentToast(
-              'Data alreay exists, please enter new details.'
-            );
-          }
-        },
-        (error: any) => {
-          this.toastService.presentToast('Network Issue.');
-        }
-      );
-    } else {
-      this.toastService.presentToast(
-        'Somthing wrong...'
-      );
-    }
-  }
 }
