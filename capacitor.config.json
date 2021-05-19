@@ -1,16 +1,16 @@
 {
-  "appId": "io.sbitm.hosbeds",
-  "appName": "HosBeds",
+  "appId": "io.ionic.hosbedsadmin",
+  "appName": "HosBeds Admin",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",
   "plugins": {
     "SplashScreen": {
-      "launchAutoHide": false,
+      "launchAutoHide": true,
       "splashFullScreen": false,
       "splashImmersive": false,
       "androidScaleType": "CENTER_CROP",
-      "launchShowDuration": 20000
+      "launchShowDuration": 2000
     }
   },
   "cordova": {}

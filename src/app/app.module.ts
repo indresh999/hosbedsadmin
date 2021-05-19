@@ -7,11 +7,9 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CategoryListModalPageModule } from './pages/category-list-modal/category-list-modal.module';
 import { LocationModalPageModule } from './pages/location-modal/location-modal.module';
 import { TechDetailsModalPageModule } from './pages/tech-details-modal/tech-details-modal.module';
-import { AutoCompleteModule } from 'ionic4-auto-complete';
-import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
+
 import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
 import { LocationAccuracy } from '@ionic-native/location-accuracy/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
@@ -22,7 +20,6 @@ import { CallNumber } from '@ionic-native/call-number/ngx';
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
-    AutoCompleteModule,
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
@@ -37,7 +34,6 @@ import { CallNumber } from '@ionic-native/call-number/ngx';
     CallNumber,
     HttpClientModule,
     Geolocation,
-    NativeGeocoder,
     AndroidPermissions,
     LocationAccuracy,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
